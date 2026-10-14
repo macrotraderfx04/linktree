@@ -3,218 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Desk — Chris</title>
-<meta name="description" content="Le Desk — les analyses de Chris et un call 1:1 pour te faire accompagner en trading.">
-<meta property="og:title" content="Le Desk — Chris">
+<title>DESK — Chris</title>
+<meta name="description" content="DESK — mes analyses et un call 1:1 pour te faire accompagner en trading.">
+<meta property="og:title" content="DESK — Chris">
 <meta property="og:description" content="Mes analyses · Réserve ton call 1:1">
-<meta name="theme-color" content="#08080c">
+<meta name="theme-color" content="#050408">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#08080c;
-    --card:#111118;
-    --card-2:#15151e;
-    --line:rgba(255,255,255,0.07);
-    --line-2:rgba(255,255,255,0.12);
-    --text:#f3f2f7;
-    --muted:#8c8a9a;
-    --desk:#43e3cb;
-    --violet:#8b5cf6;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{background:var(--bg);}
-  body{
-    min-height:100vh;
-    min-height:100dvh;
-    background:var(--bg);
-    color:var(--text);
-    font-family:"Inter", system-ui, sans-serif;
-    -webkit-font-smoothing:antialiased;
-    display:flex;
-    justify-content:center;
-    padding:72px 16px 40px;
-    position:relative;
-    overflow-x:hidden;
-  }
+  :root{--bg:#050408;--card:#0b0a11;--card2:#100e19;--line:rgba(125,100,255,.16);--line2:rgba(125,100,255,.34);
+    --text:#efeef6;--muted:#8e8ba6;--faint:#4d4a63;--v:#5b3cff;--v2:#7d64ff;--vd:#3a1ae8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bg)}
+  body{min-height:100vh;min-height:100dvh;color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    background:radial-gradient(900px 600px at 50% 0%,#13072e 0%,transparent 70%),var(--bg);
+    display:flex;justify-content:center;padding:80px 16px 40px;overflow-x:hidden}
+  main{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center}
 
-  /* fond : grille fine + halo discret */
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:44px 44px;
-    -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 20%, #000 20%, transparent 75%);
-            mask-image:radial-gradient(ellipse 70% 55% at 50% 20%, #000 20%, transparent 75%);
-    opacity:.55;
-    pointer-events:none;
-  }
-  body::after{
-    content:"";
-    position:fixed; left:50%; top:-180px;
-    width:620px; max-width:100vw; height:420px;
-    transform:translateX(-50%);
-    background:radial-gradient(closest-side, rgba(67,227,203,0.13), rgba(139,92,246,0.08) 55%, transparent);
-    pointer-events:none;
-  }
-
-  main{
-    position:relative; z-index:1;
-    width:100%; max-width:440px;
-    display:flex; flex-direction:column; align-items:center;
-  }
-
-  /* ---- profil ---- */
-  .avatar{
-    width:96px; height:96px;
-    border-radius:50%;
-    padding:3px;
-    background:linear-gradient(140deg, var(--desk), var(--violet));
-    box-shadow:0 10px 40px -12px rgba(67,227,203,0.45);
-  }
-  .avatar img{
-    width:100%; height:100%;
-    border-radius:50%;
-    object-fit:cover;
-    display:block;
-    border:3px solid var(--bg);
-  }
-
-  h1{
-    margin-top:22px;
-    font-family:"Instrument Serif", serif;
-    font-weight:400;
-    font-size:46px;
-    line-height:1;
-    letter-spacing:-0.01em;
-  }
-  h1 .desk{ font-style:italic; color:var(--desk); }
-
-  .by{
-    margin-top:10px;
-    font-family:"JetBrains Mono", monospace;
-    font-size:11.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .by .sep{ color:var(--desk); margin:0 7px; }
+  /* ---- marque ---- */
+  .logo{width:84px;height:84px;display:block}
+  .word{margin-top:20px;font:800 28px Poppins,Inter,sans-serif;letter-spacing:.32em;padding-left:.32em}
+  .tag{margin-top:12px;font:500 12px Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 
   /* ---- liens ---- */
-  .links{
-    width:100%;
-    margin-top:38px;
-    display:flex; flex-direction:column; gap:12px;
-  }
-  .link{
-    display:flex; align-items:center; gap:14px;
-    padding:16px 18px;
-    border-radius:16px;
-    background:var(--card);
-    border:1px solid var(--line-2);
-    color:var(--text);
-    text-decoration:none;
-    transition:transform .2s ease, border-color .2s ease, background .2s ease;
-  }
-  .link:hover{ transform:translateY(-2px); border-color:rgba(255,255,255,0.22); background:var(--card-2); }
-  .link:focus-visible{ outline:2px solid var(--desk); outline-offset:3px; }
-
-  .ico{
-    flex-shrink:0;
-    width:42px; height:42px;
-    border-radius:12px;
-    display:grid; place-items:center;
-    background:rgba(255,255,255,0.05);
-    border:1px solid var(--line-2);
-    color:var(--text);
-  }
-  .ico svg{ width:20px; height:20px; }
-
-  .txt{ display:flex; flex-direction:column; gap:3px; min-width:0; }
-  .t{ font-weight:600; font-size:15.5px; }
-  .s{ font-size:13px; color:var(--muted); }
-
-  .arrow{ margin-left:auto; flex-shrink:0; color:var(--muted); transition:transform .2s ease, color .2s ease; }
-  .link:hover .arrow{ transform:translateX(3px); color:var(--text); }
+  .links{width:100%;margin-top:40px;display:flex;flex-direction:column;gap:12px}
+  .link{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line2);
+    color:var(--text);text-decoration:none;transition:transform .15s,border-color .15s,background .15s}
+  .link:hover{transform:translateY(-2px);border-color:var(--v2);background:var(--card2)}
+  .link:focus-visible{outline:2px solid var(--v2);outline-offset:3px}
+  .ico{flex-shrink:0;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(125,100,255,.1);border:1px solid var(--line2);color:#b9b3e6}
+  .ico svg{width:20px;height:20px}
+  .txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .t{font:600 16px Poppins,Inter,sans-serif}
+  .s{font-size:13px;color:var(--muted)}
+  .arrow{margin-left:auto;flex-shrink:0;color:var(--faint);transition:transform .15s,color .15s}
+  .link:hover .arrow{transform:translateX(3px);color:var(--text)}
 
   /* le call = lien principal */
-  .link.call{
-    background:linear-gradient(135deg, rgba(67,227,203,0.14), rgba(139,92,246,0.10));
-    border-color:rgba(67,227,203,0.45);
-  }
-  .link.call:hover{ border-color:var(--desk); background:linear-gradient(135deg, rgba(67,227,203,0.2), rgba(139,92,246,0.14)); }
-  .link.call .ico{ background:var(--desk); border-color:transparent; color:#04201c; }
-  .tag{
-    display:inline-block;
-    margin-left:8px;
-    padding:2px 7px;
-    border-radius:100px;
-    font-family:"JetBrains Mono", monospace;
-    font-size:10.5px;
-    font-weight:500;
-    vertical-align:2px;
-    background:rgba(67,227,203,0.16);
-    color:var(--desk);
-  }
+  .link.call{background:var(--v);border-color:var(--v)}
+  .link.call:hover{background:var(--v2);border-color:var(--v2)}
+  .link.call .ico{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18);color:#fff}
+  .link.call .s{color:rgba(255,255,255,.75)}
+  .link.call .arrow{color:rgba(255,255,255,.7)}
+  .pill{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.18);font:600 11px Inter,sans-serif;vertical-align:2px}
 
   /* ---- accompagnement ---- */
-  .coach{
-    width:100%;
-    margin-top:44px;
-    padding-top:28px;
-    border-top:1px solid var(--line);
-    text-align:center;
-  }
-  .coach h2{
-    font-family:"Instrument Serif", serif;
-    font-weight:400;
-    font-size:30px;
-    line-height:1.1;
-  }
-  .coach h2 em{ color:var(--desk); }
-  .coach p{
-    margin:12px auto 0;
-    max-width:360px;
-    font-size:14.5px;
-    line-height:1.6;
-    color:var(--muted);
-  }
-  .coach a{
-    display:inline-block;
-    margin-top:18px;
-    font-size:14px;
-    font-weight:600;
-    color:var(--desk);
-    text-decoration:none;
-    border-bottom:1px solid rgba(67,227,203,0.4);
-    padding-bottom:2px;
-  }
-  .coach a:hover{ border-color:var(--desk); }
+  .coach{width:100%;margin-top:44px;padding:26px 22px;border-radius:18px;background:var(--card);border:1px solid var(--line);text-align:center}
+  .coach h2{font:800 22px/1.2 Poppins,Inter,sans-serif;letter-spacing:-.2px}
+  .coach h2 span{color:#a597ff}
+  .coach p{margin-top:10px;font-size:14px;line-height:1.6;color:var(--muted)}
+  .coach a{display:inline-block;margin-top:16px;font:600 14px Inter,sans-serif;color:#a597ff;text-decoration:none}
+  .coach a:hover{color:#fff}
 
-  footer{
-    margin-top:56px;
-    font-size:12px;
-    color:#5d5b6a;
-  }
+  footer{margin-top:48px;font-size:12px;color:var(--faint)}
 
-  @media (max-width:380px){
-    h1{ font-size:40px; }
-    .link{ padding:14px; gap:12px; }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .link, .arrow{ transition:none; }
-  }
+  @media (prefers-reduced-motion:reduce){.link,.arrow{transition:none}}
 </style>
 </head>
 <body>
 <main>
 
-  <div class="avatar"><img src="img/chris.jpg" alt="Chris" width="96" height="96"></div>
-  <h1>Le <span class="desk">Desk</span></h1>
-  <p class="by">Chris<span class="sep">/</span>Trading<span class="sep">/</span>Macro</p>
+  <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="DESK">
+    <rect x="50.63" y="16" width="30.6" height="68" fill="#3a1ae8"></rect>
+    <rect x="36.77" y="31.3" width="25.83" height="37.4" fill="#050408"></rect>
+    <text x="48.78" y="84" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="96" fill="#efeef6">D</text>
+  </svg>
+  <div class="word">DESK</div>
+  <p class="tag">Trading · Macro · Analyse</p>
 
   <nav class="links">
     <a class="link call" href="https://calendly.com/macrotraderfx04/30min" target="_blank" rel="noopener">
@@ -222,7 +78,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg>
       </span>
       <span class="txt">
-        <span class="t">Réserve ton call<span class="tag">1:1</span></span>
+        <span class="t">Réserve ton call<span class="pill">1:1</span></span>
         <span class="s">30 min en tête-à-tête avec moi</span>
       </span>
       <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -241,12 +97,12 @@
   </nav>
 
   <section class="coach">
-    <h2>Fais-toi <em>accompagner</em>.</h2>
+    <h2>Fais-toi <span>accompagner</span>.</h2>
     <p>Tu veux comprendre pourquoi le marché bouge et construire ta propre méthode ? On en parle ensemble, en direct, et on regarde où tu en es.</p>
     <a href="https://calendly.com/macrotraderfx04/30min" target="_blank" rel="noopener">Prendre mon créneau →</a>
   </section>
 
-  <footer>© 2026 Le Desk — Chris</footer>
+  <footer>© 2026 DESK — Tous droits réservés</footer>
 </main>
 </body>
 </html>
